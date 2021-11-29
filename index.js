@@ -1,21 +1,16 @@
 'use strict'
 const express = require('express')
-const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+const cors = require('cors')
 const app = express()
 
-var auto_routes = require('./routes/autoRoute');
+app.use(express.json())
+app.use(cors())
+app.options('*', cors())
+
+var auto_nuevo_routes = require('./routes/autoNuevoRoute');
 var marca_routes = require('./routes/marcaRoute');
-
-
-
-const mongoose = require('mongoose')
-
-
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
-
-app.use('/api', auto_routes);
+app.use('/api', auto_nuevo_routes);
 app.use('/api', marca_routes);
 
 
