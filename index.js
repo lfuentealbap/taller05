@@ -8,9 +8,9 @@ app.use(express.json())
 app.use(cors())
 app.options('*', cors())
 
-var auto_nuevo_routes = require('./routes/autoNuevoRoute');
+var auto_routes = require('./routes/autoRoute');
 var marca_routes = require('./routes/marcaRoute');
-app.use('/api', auto_nuevo_routes);
+app.use('/api', auto_routes);
 app.use('/api', marca_routes);
 
 
